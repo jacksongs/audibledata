@@ -16,7 +16,9 @@ while True:
 	for product in jsonresults['products']:
 		print product['asin']
 		print product['rating']
-
+		print product['issue_date']
+		print product['release_date']
+		print product.keys()
 	page += 1
 	if page > 10:
 		break
