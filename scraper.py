@@ -10,6 +10,7 @@ page = 0
 while True:
 	results = requests.get(baseurl).content
 	jsonresults = simplejson.loads(results)
+	print jsonresults
 	if len(jsonresults['products']) == 0:
 		break
 	for product in jsonresults['products']:
