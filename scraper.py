@@ -23,11 +23,14 @@ while True:
 				'orating': product['rating']['overall_distribution']['average_rating'],
 				'srating': product['rating']['story_distribution']['average_rating'],
 				'prating': product['rating']['performance_distribution']['average_rating'],
-		 		'issue_date': product['issue_date'],
 		 		'release_date': product['release_date'],
 		 		'runtime_length_min': product['runtime_length_min'],
 				'publisher_name': product['publisher_name']
 		}
+		try:
+			prod['issue_date'] = product['issue_date']
+		except:
+			pass
 		try:
 			prod['publication_name'] = product['publication_name']
 		except:
