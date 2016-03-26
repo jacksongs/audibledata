@@ -12,7 +12,6 @@ rank = 1
 while True:
 	results = requests.get(baseurl+str(page)).content
 	jsonresults = simplejson.loads(results)
-	print jsonresults
 	if len(jsonresults['products']) == 0:
 		break
 	for product in jsonresults['products']:
@@ -49,7 +48,7 @@ while True:
 					authors.append(author['name'])
 				except:
 					pass
-			prod['authors'] = authors
+			prod['authors'] = ''.join(authors)
 		except:
 			pass
 		try:
@@ -59,7 +58,7 @@ while True:
 					narrators.append(narrator['name'])
 				except:
 					pass
-			prod['narrators'] = narrators
+			prod['narrators'] = ''.join(narrators)
 		except:
 			pass
 		prod['when'] = datetime.datetime.now()
