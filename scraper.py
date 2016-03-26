@@ -63,9 +63,6 @@ while True:
 		except:
 			pass
 		prod['when'] = datetime.datetime.now()
-		print prod
 		rank+=1
 	page += 1
-
-
-#scraperwiki.sqlite.save(unique_keys=["name","club","year"],data=data,table_name='players')
+	scraperwiki.sqlite.save(unique_keys=["asin"],data=prod,table_name='products')
