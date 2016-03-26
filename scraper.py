@@ -39,7 +39,7 @@ while True:
 		except:
 			pass
 		try:
-			'copyright_en': product['copyright']['en']
+			prod['copyright_en'] = product['copyright']['en']
 		except:
 			pass
 		try:
