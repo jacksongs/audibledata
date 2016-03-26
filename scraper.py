@@ -26,11 +26,14 @@ while True:
 		 		'issue_date': product['issue_date'],
 		 		'release_date': product['release_date'],
 		 		'runtime_length_min': product['runtime_length_min'],
-			 	'format_type': product['format_type'],
 				'publisher_name': product['publisher_name']
 		}
 		try:
 			prod['publication_name'] = product['publication_name']
+		except:
+			pass
+		try:
+			prod['format_type'] = product['format_type']
 		except:
 			pass
 		try:
