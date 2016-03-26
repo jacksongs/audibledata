@@ -63,5 +63,6 @@ while True:
 			pass
 		prod['when'] = datetime.datetime.now()
 		rank+=1
+		scraperwiki.sqlite.save(unique_keys=["asin"],data=prod,table_name='products')
 	page += 1
-	scraperwiki.sqlite.save(unique_keys=["asin"],data=prod,table_name='products')
+	
