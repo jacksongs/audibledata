@@ -8,7 +8,7 @@ baseurl = "https://api.audible.com.au/1.0/catalog/products?response_groups=ratin
 
 page = 0
 while True:
-	results = requests.get(baseurl).content
+	results = requests.get(baseurl+str(page)).content
 	jsonresults = simplejson.loads(results)
 	print jsonresults
 	if len(jsonresults['products']) == 0:
