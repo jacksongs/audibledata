@@ -4,7 +4,7 @@ import requests
 import scraperwiki
 import simplejson
 
-baseurl = "https://api.audible.com.au/1.0/catalog/products?response_groups=rating,product_extended_attrs,product_attrs&num_results=5&products_sort_by=BestSellers&page="
+baseurl = "https://api.audible.com.au/1.0/catalog/products?response_groups=product_plans,rating,product_extended_attrs,product_attrs&num_results=5&products_sort_by=BestSellers&page="
 
 page = 0
 while True:
@@ -18,6 +18,7 @@ while True:
 		print product['rating']
 		print product['issue_date']
 		print product['release_date']
+		print product['copyright']
 		print product.keys()
 	page += 1
 	if page > 10:
