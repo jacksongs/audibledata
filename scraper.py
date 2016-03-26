@@ -7,6 +7,7 @@ import simplejson
 baseurl = "https://api.audible.com.au/1.0/catalog/products?response_groups=product_plans,rating,product_extended_attrs,product_attrs&num_results=5&products_sort_by=BestSellers&page="
 
 page = 0
+rank = 1
 while True:
 	results = requests.get(baseurl+str(page)).content
 	jsonresults = simplejson.loads(results)
@@ -14,14 +15,19 @@ while True:
 	if len(jsonresults['products']) == 0:
 		break
 	for product in jsonresults['products']:
+		print rank
 		print product['asin']
 		print product['rating']
 		print product['issue_date']
 		print product['release_date']
 		print product['copyright']
+		print product['publication_name']
+		print product['runtime_length_min']
+		print product['format_type']
 		print product.keys()
+		rank+=1
 	page += 1
-	if page > 10:
+	if page > 3:
 		break
 
 
