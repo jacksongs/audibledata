@@ -3,6 +3,7 @@
 import requests
 import scraperwiki
 import simplejson
+import datetime
 
 baseurl = "https://api.audible.com.au/1.0/catalog/products?response_groups=product_plans,rating,product_extended_attrs,contributors%2Cproduct_desc,product_attrs&num_results=50&products_sort_by=BestSellers&page="
 
@@ -34,6 +35,25 @@ while True:
 			prod['publication_name'] = product['publication_name']
 		except:
 			pass
+		try:
+			prod['subtitle'] = product['subtitle']
+		except:
+			pass
+		authors = []
+		for author in product['authors']:
+			try:
+				authors.append(author['name'])
+			except:
+				pass
+		prod['authors'] = authors
+		narrators = []
+		for narrator in product['narrators']:
+			try:
+				narrators.append(narrator['name'])
+			except:
+				pass
+		prod['narrators'] = narrators
+		prod['when'] = datetime.datetime.now()
 		print prod
 		rank+=1
 	page += 1
