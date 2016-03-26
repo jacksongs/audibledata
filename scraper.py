@@ -26,7 +26,6 @@ while True:
 				'prating': product['rating']['performance_distribution']['average_rating'],
 		 		'issue_date': product['issue_date'],
 		 		'release_date': product['release_date'],
-			 	'copyright': product['copyright'],
 		 		'runtime_length_min': product['runtime_length_min'],
 			 	'format_type': product['format_type'],
 				'publisher_name': product['publisher_name']
@@ -39,20 +38,30 @@ while True:
 			prod['subtitle'] = product['subtitle']
 		except:
 			pass
-		authors = []
-		for author in product['authors']:
-			try:
-				authors.append(author['name'])
-			except:
-				pass
-		prod['authors'] = authors
-		narrators = []
-		for narrator in product['narrators']:
-			try:
-				narrators.append(narrator['name'])
-			except:
-				pass
-		prod['narrators'] = narrators
+		try:
+			'copyright_en': product['copyright']['en']
+		except:
+			pass
+		try:
+			authors = []
+			for author in product['authors']:
+				try:
+					authors.append(author['name'])
+				except:
+					pass
+			prod['authors'] = authors
+		except:
+			pass
+		try:
+			narrators = []
+			for narrator in product['narrators']:
+				try:
+					narrators.append(narrator['name'])
+				except:
+					pass
+			prod['narrators'] = narrators
+		except:
+			pass
 		prod['when'] = datetime.datetime.now()
 		print prod
 		rank+=1
