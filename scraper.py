@@ -66,8 +66,6 @@ while True:
 		print prod
 		rank+=1
 	page += 1
-	if page > 10:
-		break
 
 
 #scraperwiki.sqlite.save(unique_keys=["name","club","year"],data=data,table_name='players')
