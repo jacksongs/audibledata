@@ -23,10 +23,16 @@ while True:
 		}
 		prod = {
 		 		'title': product['title'],
-		 		'asin': product['asin'],
-		 		'release_date': product['release_date'],
-				'publisher_name': product['publisher_name']
+		 		'asin': product['asin']
 		}
+		try:
+			prod['release_date'] = product['release_date']
+		except:
+			pass		
+		try:
+			prod['publisher_name'] = product['publisher_name']
+		except:
+			pass		
 		try:
 			prod['runtime_length_min'] = product['runtime_length_min']
 		except:
