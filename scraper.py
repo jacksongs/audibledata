@@ -15,12 +15,14 @@ while True:
 	if len(jsonresults['products']) == 0:
 		break
 	for product in jsonresults['products']:
-		rankdata = {'rank': rank, 'asin':product['asin'],'when':datetime.datetime.now(),
-				'reviews': product['rating']['num_reviews'],
-				'orating': product['rating']['overall_distribution']['average_rating'],
-				'srating': product['rating']['story_distribution']['average_rating'],
-				'prating': product['rating']['performance_distribution']['average_rating']
-		}
+		rankdata = {'rank': rank, 'asin':product['asin'],'when':datetime.datetime.now()}
+		try:
+			rankdata['reviews'] = product['rating']['num_reviews']
+			rankdata['orating'] = product['rating']['overall_distribution']['average_rating']
+			rankdata['srating'] = product['rating']['story_distribution']['average_rating']
+			rankdata['prating'] = product['rating']['performance_distribution']['average_rating']
+		except:
+			pass
 		prod = {
 		 		'title': product['title'],
 		 		'asin': product['asin']
