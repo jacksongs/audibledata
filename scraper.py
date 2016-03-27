@@ -24,9 +24,12 @@ while True:
 				'srating': product['rating']['story_distribution']['average_rating'],
 				'prating': product['rating']['performance_distribution']['average_rating'],
 		 		'release_date': product['release_date'],
-		 		'runtime_length_min': product['runtime_length_min'],
 				'publisher_name': product['publisher_name']
 		}
+		try:
+			prod['runtime_length_min'] = product['runtime_length_min']
+		except:
+			pass
 		try:
 			prod['issue_date'] = product['issue_date']
 		except:
