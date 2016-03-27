@@ -68,7 +68,7 @@ while True:
 		except:
 			pass
 		rank+=1
-		scraperwiki.sqlite.save(unique_keys=["asin"],data=prod,table_name='products')
+		scraperwiki.sqlite.save(unique_keys=["asin"],data=prod,table_name='product')
 		scraperwiki.sqlite.save(unique_keys=[],data=rankdata,table_name='rank')
 	page += 1
 	
