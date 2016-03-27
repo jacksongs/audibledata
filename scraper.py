@@ -15,8 +15,8 @@ while True:
 	if len(jsonresults['products']) == 0:
 		break
 	for product in jsonresults['products']:
+		rankdata = {'rank': rank, 'asin':product['asin'],'when':datetime.datetime.now()}
 		prod = {
-				'rank': rank,
 		 		'title': product['title'],
 		 		'asin': product['asin'],
 		 		'reviews': product['rating']['num_reviews'],
@@ -67,8 +67,8 @@ while True:
 			prod['narrators'] = ''.join(narrators)
 		except:
 			pass
-		prod['when'] = datetime.datetime.now()
 		rank+=1
 		scraperwiki.sqlite.save(unique_keys=["asin"],data=prod,table_name='products')
+		scraperwiki.sqlite.save(unique_keys=[],data=rankdata,table_name='rank')
 	page += 1
 	
